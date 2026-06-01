@@ -3,7 +3,7 @@ import {useState, useEffect, useContext} from 'react';
 import { useInput } from '../hooks/useInput';
 import { UserContext } from '../contexts/userContext';
 
-export const API_URL = 'https://crudcrud.com/api/1a00052c30914b29af0e7c574405f385/tarefas';
+export const API_URL = 'https://crudcrud.com/api/0a57dfdc94514342bcb9ff64ddbcd135/tarefas';
 
 function ListaTarefas() {
 
