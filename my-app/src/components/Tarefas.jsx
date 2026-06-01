@@ -3,14 +3,14 @@ import "./tarefas.css";
 import { UserContext } from "../contexts/userContext";
 import { API_URL } from "./ListaTarefas";
 
-function Tarefas({ texto, id }) { 
+function Tarefas({ texto, id }) {
 
     const [concluida, setConcluida] = useState(false);
-    const {usuario} = useContext(UserContext);
+    const { usuario } = useContext(UserContext);
 
     const alternarConcluida = () => {
         setConcluida(!concluida);
-        const novoStatus = !concluida; 
+        const novoStatus = !concluida;
 
         const dadosAtualizados = {
             id: id,
@@ -23,11 +23,14 @@ function Tarefas({ texto, id }) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(dadosAtualizados)
         })
-            .then(res => res.json())
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Falha na resposta do servidor');
+                }
+                return res;
+            })
             .then(() => {
-                // 4. Só atualiza a tela se a API aceitou a mudança
                 setConcluida(novoStatus);
-
             })
             .catch(error => console.error("Erro ao atualizar tarefa:", error));
     };
