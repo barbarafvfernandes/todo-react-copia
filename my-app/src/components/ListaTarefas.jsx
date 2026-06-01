@@ -53,7 +53,7 @@ function ListaTarefas() {
       <ul>
         {listTarefas
         .filter(tarefa => tarefa.usuario === usuario.nome)
-        .map(tarefa => <Tarefas key={tarefa._id} texto={tarefa.texto}  id={tarefa._id}/>)}
+        .map(tarefa => <Tarefas key={tarefa._id} texto={tarefa.texto}  id={tarefa._id} statusInicial={tarefa.concluida} />)}
       </ul>
     </>
   )

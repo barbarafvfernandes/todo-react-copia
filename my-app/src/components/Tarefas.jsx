@@ -3,9 +3,9 @@ import "./tarefas.css";
 import { UserContext } from "../contexts/userContext";
 import { API_URL } from "./ListaTarefas";
 
-function Tarefas({ texto, id }) {
+function Tarefas({ texto, id, statusInicial }) {
 
-    const [concluida, setConcluida] = useState(false);
+    const [concluida, setConcluida] = useState(statusInicial);
     const { usuario } = useContext(UserContext);
 
     const alternarConcluida = () => {
