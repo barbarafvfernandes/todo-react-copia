@@ -13,6 +13,7 @@ function Tarefas({ texto, id }) {
 
         const dadosAtualizados = {
             id: id,
+            usuario: usuario.nome,
             texto: texto,
             concluida: novoStatus
         };
