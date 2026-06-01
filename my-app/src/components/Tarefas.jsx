@@ -1,11 +1,12 @@
-import { useState, memo } from "react";
+import { useState, memo, useContext } from "react";
 import "./tarefas.css";
-import { UserContext } from "../contexts/UserContext";
+import { UserContext } from "../contexts/userContext";
 import { API_URL } from "./ListaTarefas";
 
 function Tarefas({ texto, id }) { 
 
     const [concluida, setConcluida] = useState(false);
+    const {usuario} = useContext(UserContext);
 
     const alternarConcluida = () => {
         setConcluida(!concluida);
